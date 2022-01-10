@@ -1,0 +1,11 @@
+#container {
+    max-width: 1500px;
+    margin: auto;
+}
+
+body {
+    background: radial-gradient(86% 34.12% at 41.12% 40.74%, rgba(97, 0, 148, 0.8) 4.69%, rgba(63, 0, 113, 0.9) 51.04%, #170059 100%);
+    background-attachment: fixed;
+    padding: 0;
+    margin: 0;
+}
