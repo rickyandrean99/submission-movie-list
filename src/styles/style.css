@@ -1,6 +1,8 @@
-#container {
-    max-width: 1500px;
-    margin: auto;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    color: white;
 }
 
 body {
@@ -8,4 +10,36 @@ body {
     background-attachment: fixed;
     padding: 0;
     margin: 0;
+}
+
+#container {
+    max-width: 1500px;
+    margin: auto;
+    padding: 0;
+}
+
+.card-background {
+    background: linear-gradient(293.54deg, rgba(45, 20, 119, 0.8) 14.47%, rgba(86, 0, 131, 0.8) 96.94%);
+}
+
+.movie-title {
+    font-size: 1.15rem;
+    line-height: 1.8rem;
+}
+
+.movie-text {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+}
+
+@media screen and (max-width: 576px) {
+    .movie-title {
+        font-size: 1rem;
+        line-height: 1.45rem;
+    }
+
+    .movie-text {
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+    }
 }

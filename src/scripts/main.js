@@ -2,7 +2,7 @@ import './components/movie-list.js'
 import './components/view-type.js'
 
 function main() {
-    const fetchMovie = async () => {
+    document.addEventListener("DOMContentLoaded", async () => {
         try {
             // Fetch api movie
             const genre = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=9f2ec888bf74e369a08ab679c566da02`)
@@ -10,7 +10,11 @@ function main() {
             const genreJson = await genre.json()
             const movieJson = await movie.json()
 
-            // Mengirim data ke component dan menampilkan html
+            // Membuat komponen view type (grid & list) dan menampilkan dalam bentuk html
+            const viewType = document.createElement("view-type")
+            $('#container').before(viewType)
+
+            // Mengirim data movie dan genre ke component dan menampilkan dalam bentuk html
             const movieList = document.createElement("movie-list")
             movieList.genres = genreJson.genres
             movieList.movies = movieJson.items
@@ -30,15 +34,6 @@ function main() {
         } catch (error) {
             console.log(`Error message: ${error}`)
         }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const viewType = document.createElement("view-type")
-        $('#container').before(viewType)
-
-        
-
-        fetchMovie()
     })
 }
 
