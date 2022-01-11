@@ -31,7 +31,6 @@ class MovieList extends HTMLElement {
         $(this).html('')
         let element = `<div class="row p-3 flex-wrap">`
 
-        // jika view type adalah grid
         if (this.type == 'grid') {
             movieList.forEach(movie => {
                 let genre = ''
@@ -49,7 +48,6 @@ class MovieList extends HTMLElement {
                     </div>
                 `
             })
-        // jika view type selain grid seperti list
         } else {
             movieList.forEach(movie => {
                 let genre = ''

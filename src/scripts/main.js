@@ -24,8 +24,7 @@ function main() {
             $('#container').before(searchBar)
 
             // Listener untuk search bar
-            const search = document.querySelector("#search")
-            search.addEventListener("input", () => movieList.setAttribute("search", search.value))
+            document.querySelector("#search").addEventListener("input", () => movieList.setAttribute("search", search.value))
 
             // Mengirim data movie dan genre ke component dan menampilkan dalam bentuk html
             const movieList = document.createElement("movie-list")
