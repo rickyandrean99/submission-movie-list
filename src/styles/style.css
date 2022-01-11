@@ -32,6 +32,11 @@ body {
     line-height: 1.4rem;
 }
 
+.search-bar {
+    width: 75vw;
+    margin: auto
+}
+
 @media screen and (max-width: 576px) {
     .movie-title {
         font-size: 1rem;
@@ -41,5 +46,11 @@ body {
     .movie-text {
         font-size: 0.8rem;
         line-height: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .search-bar {
+        width: 90vw;
     }
 }

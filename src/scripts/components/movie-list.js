@@ -9,6 +9,7 @@ class MovieList extends HTMLElement {
 
     connectedCallback() {
         this.type = 'grid'
+        this.search = ''
         this.render()
     }
 
@@ -18,16 +19,21 @@ class MovieList extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["type"]
+        return ["type", "search"]
     }
 
     render() {
+        // filtering movie berdasarkan search
+        let moviesTemp = this._movies
+        const movieList = moviesTemp.filter(movie => movie.title.toLowerCase().includes(this.search.toLowerCase()))
+
+        // merender tampilan
         $(this).html('')
         let element = `<div class="row p-3 flex-wrap">`
 
         // jika view type adalah grid
         if (this.type == 'grid') {
-            this._movies.forEach(movie => {
+            movieList.forEach(movie => {
                 let genre = ''
     
                 movie.genre_ids.forEach((id, index) => {
@@ -45,7 +51,7 @@ class MovieList extends HTMLElement {
             })
         // jika view type selain grid seperti list
         } else {
-            this._movies.forEach(movie => {
+            movieList.forEach(movie => {
                 let genre = ''
     
                 movie.genre_ids.forEach((id, index) => {

@@ -1,5 +1,6 @@
 import './components/movie-list.js'
 import './components/view-type.js'
+import './components/search-bar'
 
 function main() {
     document.addEventListener("DOMContentLoaded", async () => {
@@ -14,23 +15,23 @@ function main() {
             const viewType = document.createElement("view-type")
             $('#container').before(viewType)
 
+            // Listener untuk button view type
+            document.querySelector("#buttonGrid").addEventListener("click", () => movieList.setAttribute("type", "grid"))
+            document.querySelector("#buttonList").addEventListener("click", () => movieList.setAttribute("type", "list"))
+
+            // Membuat komponen search bar
+            const searchBar = document.createElement("search-bar")
+            $('#container').before(searchBar)
+
+            // Listener untuk search bar
+            const search = document.querySelector("#search")
+            search.addEventListener("input", () => movieList.setAttribute("search", search.value))
+
             // Mengirim data movie dan genre ke component dan menampilkan dalam bentuk html
             const movieList = document.createElement("movie-list")
             movieList.genres = genreJson.genres
             movieList.movies = movieJson.items
             $('#container').append(movieList)
-
-            // Listener untuk button view type
-            const buttonViewGrid = document.querySelector("#buttonGrid")
-            const buttonViewList = document.querySelector("#buttonList")
-
-            buttonViewGrid.addEventListener("click", function () {
-                movieList.setAttribute("type", "grid")
-            })
-
-            buttonViewList.addEventListener("click", function () {
-                movieList.setAttribute("type", "list")
-            })
         } catch (error) {
             console.log(`Error message: ${error}`)
         }
